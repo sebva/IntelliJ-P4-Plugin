@@ -6,7 +6,6 @@ import com.intellij.psi.codeStyle.CommonCodeStyleSettings;
 import com.intellij.psi.codeStyle.LanguageCodeStyleSettingsProvider;
 import kotlin.text.Charsets;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.p4.p4plugin.P4Lang;
 
 import java.io.IOException;
@@ -30,13 +29,11 @@ public class P4LangCodeStyleSettingsProvider extends LanguageCodeStyleSettingsPr
         }
     }
 
-    @Nullable
     @Override
-    public CommonCodeStyleSettings getDefaultCommonSettings() {
-        CommonCodeStyleSettings commonCodeStyleSettings = new CommonCodeStyleSettings(P4Lang.INSTANCE);
-        CommonCodeStyleSettings.IndentOptions indentOptions = commonCodeStyleSettings.initIndentOptions();
+    protected void customizeDefaults(@NotNull CommonCodeStyleSettings commonSettings, @NotNull CommonCodeStyleSettings.IndentOptions indentOptions) {
+        commonSettings.copyFrom(new CommonCodeStyleSettings(P4Lang.INSTANCE));
+        indentOptions.copyFrom(commonSettings.initIndentOptions());
         indentOptions.INDENT_SIZE = 4;
         indentOptions.TAB_SIZE = 8;
-        return commonCodeStyleSettings;
     }
 }

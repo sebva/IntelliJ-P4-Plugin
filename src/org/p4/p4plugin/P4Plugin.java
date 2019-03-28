@@ -1,15 +1,15 @@
 package org.p4.p4plugin;
 
-import com.intellij.openapi.components.AbstractProjectComponent;
+import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
-public class P4Plugin extends AbstractProjectComponent {
+public class P4Plugin implements ProjectComponent {
 
     private static final String DEFAULT_P4_INCLUDE_PATH = "/usr/local/share/p4c/p4include";
 
     public P4Plugin(Project project) {
-        super(project);
+
     }
 
     @Override

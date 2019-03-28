@@ -1,9 +1,9 @@
 package org.p4.p4plugin.module;
 
+import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleType;
 import org.jetbrains.annotations.NotNull;
 import org.p4.p4plugin.icon.P4LangIcon;
-
 
 import javax.swing.*;
 
@@ -35,5 +35,9 @@ public class P4ModuleType extends ModuleType<P4ModuleBuilder> {
     @Override
     public Icon getNodeIcon(boolean b) {
         return P4LangIcon.ICON;
+    }
+
+    public static boolean isP4Module(@NotNull Module module) {
+        return MODULE_ID.equals(ModuleType.get(module).getId());
     }
 }

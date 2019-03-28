@@ -8,17 +8,7 @@ import com.intellij.psi.PsiComment;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.util.PsiTreeUtil;
-import org.p4.p4plugin.psi.P4LangDeclaration;
-import org.p4.p4plugin.psi.P4LangDerivedTypeDeclaration;
-import org.p4.p4plugin.psi.P4LangExternDeclaration;
-import org.p4.p4plugin.psi.P4LangFile;
-import org.p4.p4plugin.psi.P4LangFunctionPrototype;
-import org.p4.p4plugin.psi.P4LangName_;
-import org.p4.p4plugin.psi.P4LangNonTypeName;
-import org.p4.p4plugin.psi.P4LangPackageTypeDeclaration;
-import org.p4.p4plugin.psi.P4LangProgram;
-import org.p4.p4plugin.psi.P4LangTypeDeclaration;
-import org.p4.p4plugin.psi.P4LangTypes;
+import org.p4.p4plugin.psi.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

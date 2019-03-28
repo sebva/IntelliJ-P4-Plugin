@@ -42,9 +42,8 @@ public class P4ModuleSettings {
     }
 
     public static P4ModuleSettings fromFile(File file) {
-        InputStream inputStream = null;
         try {
-            inputStream = new FileInputStream(file);
+            InputStream inputStream = new FileInputStream(file);
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             JsonParser parser = new JsonParser();
             JsonObject jsonObject = parser.parse(inputStreamReader).getAsJsonObject();
@@ -54,7 +53,7 @@ public class P4ModuleSettings {
 
             return new P4ModuleSettings(incPaths, compilerPath, compilerArgs);
 
-        } catch (IOException e) {
+        } catch (IOException | IllegalStateException e) {
             e.printStackTrace();
             return null;
         }

@@ -1,5 +1,6 @@
 package org.p4.p4plugin.module;
 
+import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleConfigurationEditor;
 import com.intellij.openapi.roots.ui.configuration.ModuleConfigurationEditorProvider;
 import com.intellij.openapi.roots.ui.configuration.ModuleConfigurationState;
@@ -11,6 +12,11 @@ public class P4ModuleConfigurationEditorProvider implements ModuleConfigurationE
 
     @Override
     public ModuleConfigurationEditor[] createEditors(ModuleConfigurationState moduleConfigurationState) {
+        Module module = moduleConfigurationState.getRootModel().getModule();
+        if (!P4ModuleType.isP4Module(module)) {
+            return ModuleConfigurationEditor.EMPTY;
+        }
+
         P4ModuleConfigEditor editor = new P4ModuleConfigEditor(moduleConfigurationState);
         return new ModuleConfigurationEditor[]{editor};
     }
